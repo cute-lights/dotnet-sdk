@@ -12,16 +12,9 @@
     <AssemblyName>CuteLight.Sdk.Example</AssemblyName>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-    <Content Include="../../clib/target/debug/libcutelight.so">
+  <ItemGroup>
+    <Content Include="../obj/natives/dist/lib64/libcutelight.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
-  <ItemGroup Condition="'$(Configuration)' == 'Release'">
-    <Content Include="../../clib/target/release/libcutelight.so">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>
