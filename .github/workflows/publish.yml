@@ -1,0 +1,53 @@
+on:
+    push:
+        tags:
+            - "v*" # Push events to every tag not containing /
+    workflow_dispatch:
+
+name: Publish
+
+jobs:
+    publish:
+        name: Publish
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        env:
+            CARGO_TERM_COLOR: always
+            DOTNET_CLI_TELEMETRY_OPTOUT: 1
+        steps:
+            - name: Checkout sources
+              uses: actions/checkout@v2
+
+            - name: Install stable toolchain
+              uses: actions-rs/toolchain@v1
+              with:
+                  profile: minimal
+                  toolchain: stable
+                  override: true
+
+            - name: Bump version
+              uses: tj-actions/cargo-bump@v3
+
+            - name: Build
+              run: |
+                  cargo build
+                  dotnet build                  
+              env:
+                  BUMP_VERSION: "1"
+
+            - name: Commit changes
+              run: |
+                  git config --local user.email "github-actions[bot]@users.noreply.github.com"
+                  git config --local user.name "github-actions[bot]"
+                  git add Cargo.toml
+                  git add Cargo.lock
+                  git commit -m "Bump version"
+                  git push origin HEAD:main
+
+            - name: Publish to nuget
+              shell: bash
+              run: |
+                  dotnet nuget push bin/Release/CuteLight.Sdk.*.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_API_KEY
+              env:
+                  CRATES_TOKEN: ${{ secrets.NUGET_API_KEY }}

@@ -14,3 +14,4 @@ reqwest = { version = "0.12.5", features = ["blocking"] }
 tar = "0.4.41"
 octocrab = "0.38.0"
 tokio = { version = "1.38.0", features = ["full"] }
+regex = "1.10.5"

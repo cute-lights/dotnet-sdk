@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <Version>1.0.4</Version> <!-- ci-tag-anchor -->
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AssemblyName>CuteLight.Sdk</AssemblyName>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <PackageId>CuteLight.Sdk</PackageId>
-        <Version>1.0.4</Version>
         <Authors>Cameron Dehning</Authors>
         <Description>CuteLight SDK for .NET</Description>
         <Title>CuteLights Sdk</Title>

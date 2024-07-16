@@ -6,7 +6,24 @@ const C_SDK_VERSION: Option<&str> = None; // None for latest
 
 #[tokio::main]
 async fn main() {
+    println!("cargo:rerun-if-changed=NULL");
+    println!("cargo:rerun-if-changed=build.rs");
     let project_dir = std::env::var("CARGO_MANIFEST_DIR").unwrap();
+    let project_file = Path::new(&project_dir).join("CuteLight.Sdk.csproj");
+
+    if std::env::var("BUMP_VERSION").unwrap_or("0".to_string()) == "1" {
+        let tag = std::env::var("CARGO_PKG_VERSION").unwrap();
+        let content = std::fs::read_to_string(&project_file).unwrap();
+        let re = regex::Regex::new(r#"<Version>(.*)<\/Version> <!-- ci-tag-anchor -->"#).unwrap();
+
+        // get the first group
+        let new_content = re.replace(
+            &content,
+            format!("<Version>{}</Version> <!-- ci-tag-anchor -->", tag).as_str(),
+        );
+
+        std::fs::write(&project_file, new_content.as_bytes()).unwrap();
+    }
 
     let obj_dir = Path::new(&project_dir).join("obj");
     let natives_dir = obj_dir.join("natives");
@@ -78,6 +95,11 @@ async fn main() {
         .input_bindgen_file(&rs_intermediary_path) // read from bindgen generated code
         .csharp_dll_name("libcutelight.so")
         .csharp_namespace("CuteLights.Sdk")
-        .generate_to_file(rs_intermediary_path, Path::new(&project_dir).join("src").join("NativeMethods.g.cs"))
+        .generate_to_file(
+            rs_intermediary_path,
+            Path::new(&project_dir)
+                .join("src")
+                .join("NativeMethods.g.cs"),
+        )
         .unwrap();
 }
