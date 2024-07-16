@@ -42,6 +42,7 @@ jobs:
                   git config --local user.name "github-actions[bot]"
                   git add Cargo.toml
                   git add Cargo.lock
+                  git add CuteLight.Sdk.csproj
                   git commit -m "Bump version"
                   git push origin HEAD:main
 
