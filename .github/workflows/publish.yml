@@ -27,8 +27,9 @@ jobs:
                   override: true
 
             - name: Bump version
-              uses: tj-actions/cargo-bump@v3
-
+              uses: cute-lights/bump-version@main
+              with:
+                  files: "Cargo.toml CuteLight.Sdk.csproj"
             - name: Build
               run: |
                   cargo build
