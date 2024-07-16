@@ -40,6 +40,7 @@ jobs:
             - name: Publish to nuget
               shell: bash
               run: |
+                  dotnet pack -c Release
                   dotnet nuget push bin/Release/CuteLight.Sdk.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_API_KEY}
               env:
                   NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
