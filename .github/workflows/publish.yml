@@ -42,7 +42,7 @@ jobs:
               run: |
                   dotnet nuget push bin/Release/CuteLight.Sdk.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_API_KEY}
               env:
-                  CRATES_TOKEN: ${{ secrets.NUGET_API_KEY }}
+                  NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
             - name: Commit changes
               run: |
                   git config --local user.email "github-actions[bot]@users.noreply.github.com"
