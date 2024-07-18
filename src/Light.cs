@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace CuteLights.Sdk;
+namespace CuteLight.Sdk;
 
 /// <summary>
 /// Represents a light device.

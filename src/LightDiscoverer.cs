@@ -1,5 +1,5 @@
 
-namespace CuteLights.Sdk;
+namespace CuteLight.Sdk;
 
 public static class LightDiscoverer {
     public static Light[] Discover() {

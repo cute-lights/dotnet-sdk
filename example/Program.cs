@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using CuteLights.Sdk;
+using CuteLight.Sdk;
 
 var lights = LightDiscoverer.Discover();
 

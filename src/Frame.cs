@@ -1,4 +1,4 @@
-namespace CuteLights.Sdk;
+namespace CuteLight.Sdk;
 
 /// <summary>
 /// Allows for running multiple commands at once on a set of lights.
@@ -172,7 +172,7 @@ public class Frame {
     /// <summary>
     /// Clears the frame.
     /// </summary>
-     public void Clear() {
+    public void Clear() {
         unsafe {
             NativeMethods.frame_clear(ptr);
         }
