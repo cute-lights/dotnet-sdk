@@ -39,7 +39,7 @@ fn main() {
     csbindgen::Builder::default()
         .input_bindgen_file(&rs_intermediary_path) // read from bindgen generated code
         .csharp_dll_name("libcutelight.so")
-        .csharp_namespace("CuteLights.Sdk")
+        .csharp_namespace("CuteLight.Sdk")
         .generate_to_file(
             rs_intermediary_path,
             Path::new(&project_dir)

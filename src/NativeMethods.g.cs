@@ -8,8 +8,10 @@ using System;
 using System.Runtime.InteropServices;
 
 
-namespace CuteLight.Sdk {
-    internal static unsafe partial class NativeMethods {
+namespace CuteLight.Sdk
+{
+    internal static unsafe partial class NativeMethods
+    {
         const string __DllName = "libcutelight.so";
 
 
@@ -89,17 +91,20 @@ namespace CuteLight.Sdk {
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    internal unsafe partial struct FramePtr {
+    internal unsafe partial struct FramePtr
+    {
         public fixed byte _unused[1];
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    internal unsafe partial struct LightDiscovererPtr {
+    internal unsafe partial struct LightDiscovererPtr
+    {
         public fixed byte _unused[1];
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    internal unsafe partial struct LightPtr {
+    internal unsafe partial struct LightPtr
+    {
         public fixed byte _unused[1];
     }
 
