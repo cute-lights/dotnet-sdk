@@ -9,9 +9,3 @@ path = "/dev/null"
 [build-dependencies]
 bindgen = "0.69.4"
 csbindgen = "1.9.1"
-flate2 = "1.0.30"
-reqwest = { version = "0.12.5", features = ["blocking"] }
-tar = "0.4.41"
-octocrab = "0.38.0"
-tokio = { version = "1.38.0", features = ["full"] }
-regex = "1.10.5"

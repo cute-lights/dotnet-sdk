@@ -1,0 +1,17 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "bindgen",
+        "csbindgen",
+        "cutelight",
+        "libcutelight",
+        "octocrab",
+        "reqwest",
+        "stdarg"
+    ],
+    "ignoreWords": [],
+    "import": []
+}
