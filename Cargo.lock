@@ -78,7 +78,7 @@ dependencies = [
 
 [[package]]
 name = "cute-light-dotnet"
-version = "1.0.14"
+version = "1.0.15"
 dependencies = [
  "bindgen",
  "csbindgen",
