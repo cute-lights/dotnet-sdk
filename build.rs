@@ -1,6 +1,6 @@
 use std::path::{Path, PathBuf};
 
-const VERSION: &str = "v0.2.3";
+const VERSION: &str = "v0.2.4";
 
 fn main() {
     println!("cargo:rerun-if-changed=NULL");
